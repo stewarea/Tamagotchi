@@ -14,9 +14,55 @@
             $this->petPlay = 100;
         }
 
+        function getName()
+        {
+            return $this->petName;
+        }
+
+        function getStat($statNumber)
+        {
+            if ($statNumber == 1) {
+                return $this->petFood;
+            } elseif ($statNumber == 2) {
+                return $this->petRest;
+            } else {
+                return $this->petPlay;
+            }
+
+        }
+
         function petSave()
         {
-            array_push($_SESSION['pet_record'], $this);
+            $_SESSION['pet_record'] = $this;
+        }
+
+        function petFeed()
+        {
+            $this->petFood += 10;
+            $this->petPlay -= 5;
+            $this->petRest -= 2;
+        }
+
+        function petRest()
+        {
+            $this->petRest += 10;
+            $this->petPlay -= 5;
+            $this->petFood -= 2;
+        }
+
+        function petPlay()
+        {
+            $this->petPlay += 10;
+            $this->petRest -= 5;
+            $this->petFood -= 2;
+        }
+
+        function petDegrade()
+        {
+            $this->petPlay -= 5;
+            $this->petRest -= 5;
+            $this->petFood -= 5;
+
         }
 
         function retrievePet()

@@ -1,0 +1,26 @@
+<html>
+<head>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
+    <title>My Virtual Pet!</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Life With {{yourPet.getName}}...</h1>
+        <ul class="list-group">
+            <li class="list-group-item active">Here are {{yourPet.getName}}'s stats:</li>
+            <li class="list-group-item">Food: {{yourPet.getStat(1)}}</li>
+            <li class="list-group-item">Rest: {{yourPet.getStat(2)}}</li>
+            <li class="list-group-item">Play: {{yourPet.getStat(3)}}</li>
+        </ul>
+        <form action="/feed" method="post">
+            <button type="submit" class="btn btn-info">Feed {{yourPet.getName}}!</button>
+        </form>
+        <form action="/rest" method="post">
+            <button type="submit" class="btn btn-default">Rest {{yourPet.getName}}!</button>
+        </form>
+        <form action="/play" method="post">
+            <button type="submit" class="btn btn-warning">Play with {{yourPet.getName}}!</button>
+        </form>
+    </div>
+</body>
+</html>
