@@ -39,30 +39,38 @@
         function petFeed()
         {
             $this->petFood += 10;
-            $this->petPlay -= 5;
-            $this->petRest -= 2;
+            $this->petPlay -= rand(1,5);
+            $this->petRest -= rand(1,2);
         }
 
         function petRest()
         {
             $this->petRest += 10;
-            $this->petPlay -= 5;
-            $this->petFood -= 2;
+            $this->petPlay -= rand(1,5);
+            $this->petFood -= rand(1,2);
         }
 
         function petPlay()
         {
             $this->petPlay += 10;
-            $this->petRest -= 5;
-            $this->petFood -= 2;
+            $this->petRest -= rand(1,5);
+            $this->petFood -= rand(1,2);
         }
 
         function petDegrade()
         {
-            $this->petPlay -= 5;
-            $this->petRest -= 5;
-            $this->petFood -= 5;
+            $this->petPlay -= rand(1,5);
+            $this->petRest -= rand(1,5);
+            $this->petFood -= rand(1,5);
+            $_SESSION['turn_counter'] ++;
+        }
 
+        function petStatus() {
+            if ($this->petFood <= 0 || $this->petRest <= 0 || $this->petPlay <= 0) {
+                return false;
+            } else {
+                return true;
+            }
         }
 
         function retrievePet()
@@ -73,6 +81,7 @@
         function resetPet()
         {
             $_SESSION['pet_record'] = array();
+            $_SESSION['turn_counter'] = "";
         }
     }
 ?>

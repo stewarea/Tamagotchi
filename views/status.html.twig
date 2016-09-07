@@ -12,14 +12,10 @@
             <li class="list-group-item">Rest: {{yourPet.getStat(2)}}</li>
             <li class="list-group-item">Play: {{yourPet.getStat(3)}}</li>
         </ul>
-        <form action="/feed" method="post">
-            <button type="submit" class="btn btn-info">Feed {{yourPet.getName}}!</button>
-        </form>
-        <form action="/rest" method="post">
-            <button type="submit" class="btn btn-default">Rest {{yourPet.getName}}!</button>
-        </form>
-        <form action="/play" method="post">
-            <button type="submit" class="btn btn-warning">Play with {{yourPet.getName}}!</button>
+        <form method="post">
+            <button type="submit" formaction="/feed" class="btn btn-info">Feed {{yourPet.getName}}!</button>
+            <button type="submit" formaction="/rest" class="btn btn-default">Rest {{yourPet.getName}}!</button>
+            <button type="submit" formaction="/play" class="btn btn-warning">Play with {{yourPet.getName}}!</button>
         </form>
     </div>
 </body>
